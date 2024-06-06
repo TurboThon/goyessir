@@ -1,0 +1,5 @@
+# Tool default directories
+uploads
+requests
+# Build directory
+dist
