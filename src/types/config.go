@@ -6,7 +6,7 @@ type Config = struct {
 	WebRoot         string
 	UploadDirectory string
 	NoDirListing    bool
-	FileUpload      bool
+	NoFileUpload    bool
 	Routes          RoutesConfig
 	LoggingConfig   LoggingConfig
 	Color           bool

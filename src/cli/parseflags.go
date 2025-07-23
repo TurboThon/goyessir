@@ -14,7 +14,7 @@ func CreateConfig() *types.Config {
 	flag.StringVar(&config.WebRoot, "d", ".", "Webroot")
 	flag.StringVar(&config.UploadDirectory, "upload-dir", "uploads", "Directory where uploaded files are stored")
 	flag.BoolVar(&config.NoDirListing, "no-dirlist", false, "Disable directory listing")
-	flag.BoolVar(&config.FileUpload, "u", false, "Enable file upload")
+	flag.BoolVar(&config.NoFileUpload, "no-upload", false, "Disable file upload")
 	flag.BoolVar(&config.Color, "c", false, "Enable color output")
 
 	flag.StringVar(&config.LoggingConfig.RequestLogDirectory, "log-dir", "requests", "Directory where requests are saved when they are not printed to stdout")

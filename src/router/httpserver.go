@@ -29,7 +29,7 @@ func CreateRouter(config *types.Config) *gin.Engine {
 
 	setupStaticFS(r, config)
 
-	if config.FileUpload {
+	if !config.NoFileUpload {
 		setupFileUpload(r, config)
 	}
 
@@ -57,8 +57,6 @@ func setupFileUpload(engine *gin.Engine, config *types.Config) {
 }
 
 func setupDumpRequests(engine *gin.Engine, config *types.Config) {
-	// engine.Any(fmt.Sprintf("%s/*route", config.Routes.Dump), requestlog.LogRequestMiddleware(config))
-	// engine.Any(config.Routes.Dump, requestlog.LogRequestMiddleware(config))
 	engine.Use(requestlog.LogRequestMiddleware(config))
 
 	log.Printf("http://%s%s -> dump request (All methods)", config.Addr, config.Routes.Dump)

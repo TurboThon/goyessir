@@ -16,9 +16,9 @@ const HELP_TEXT = `
   curl http://127.0.0.1:8000/ -F "file=@yourfile.txt"
   curl http://127.0.0.1:8000/ -F "file[]=@file1.txt" -F "file[]=@file2.txt"
 
-  wget --post-file main.go http://127.0.0.1:8000/ -O-
+  wget --post-file image.png http://127.0.0.1:8000/ -O-
 
-  IWR -Uri http://127.0.0.1:8000/ -Method Post -InFile $uploadPath -UseDefaultCredentials
+  IWR -Uri http://127.0.0.1:8000/ -Method Post -InFile $filePath -UseDefaultCredentials
 `
 
 func createDirectories(config *types.Config) {
