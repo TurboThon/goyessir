@@ -1,15 +1,16 @@
 package types
 
 type Config = struct {
-	Debug           bool
-	Addr            string
-	WebRoot         string
-	UploadDirectory string
-	NoDirListing    bool
-	NoFileUpload    bool
-	Routes          RoutesConfig
-	LoggingConfig   LoggingConfig
-	Color           bool
+	Debug            bool
+	Addr             string
+	WebRoot          string
+	UploadDirectory  string
+	NoDirListing     bool
+	NoFileUpload     bool
+	NoFileUploadForm bool
+	Routes           RoutesConfig
+	LoggingConfig    LoggingConfig
+	Color            bool
 }
 
 type LoggingConfig struct {

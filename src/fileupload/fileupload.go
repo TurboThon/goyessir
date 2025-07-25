@@ -16,6 +16,10 @@ import (
 	"github.com/turbothon/goyessir/src/types"
 )
 
+const ContentTypeHTML = "text/html; charset=utf-8"
+
+const FileUploadHelperBody = "<html><body><form enctype=\"multipart/form-data\" action=\"/u/\" method=\"post\"><input type=\"file\" name=\"file\"><input type=\"submit\" value=\"upload\"></form></body></html>"
+
 func computeSuffix(file_dest string) string {
 
 	final_file_dest := file_dest
@@ -96,5 +100,11 @@ func FileUploadHandlerCreate(config *types.Config) gin.HandlerFunc {
 		}
 
 		c.String(http.StatusOK, "200 OK")
+	}
+}
+
+func FileUploadHelperHandlerCreate(config *types.Config) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		c.Data(http.StatusOK, ContentTypeHTML, []byte(FileUploadHelperBody))
 	}
 }

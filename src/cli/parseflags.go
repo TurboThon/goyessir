@@ -15,13 +15,14 @@ func CreateConfig() *types.Config {
 	flag.StringVar(&config.UploadDirectory, "upload-dir", "uploads", "Directory where uploaded files are stored")
 	flag.BoolVar(&config.NoDirListing, "no-dirlist", false, "Disable directory listing")
 	flag.BoolVar(&config.NoFileUpload, "no-upload", false, "Disable file upload")
+	flag.BoolVar(&config.NoFileUploadForm, "no-upload-form", false, "Disable file upload HTML form")
 	flag.BoolVar(&config.Color, "c", false, "Enable color output")
 
 	flag.StringVar(&config.LoggingConfig.RequestLogDirectory, "log-dir", "requests", "Directory where requests are saved when they are not printed to stdout")
 	flag.Int64Var(&config.LoggingConfig.LogBodyLengthLimit, "body-length", 8000, "Content-Length limit above which the request is saved to a file instead of being printed to stdout")
 
-	flag.StringVar(&config.Routes.StaticFS, "files-route", "/", "Web route where the static fs is served")
-	flag.StringVar(&config.Routes.Upload, "upload-route", "/", "Web route to upload files")
+	flag.StringVar(&config.Routes.StaticFS, "files-route", "/f/", "Web route where the static fs is served")
+	flag.StringVar(&config.Routes.Upload, "upload-route", "/u/", "Web route to upload files")
 	flag.StringVar(&config.Routes.Dump, "dump-route", "/", "Web route where requests are dumped to stdout")
 
 	flag.Parse()

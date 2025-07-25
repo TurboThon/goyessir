@@ -54,6 +54,11 @@ func setupFileUpload(engine *gin.Engine, config *types.Config) {
 	engine.POST(path_wildcard, fileupload.FileUploadHandlerCreate(config))
 	engine.PUT(path_wildcard, fileupload.FileUploadHandlerCreate(config))
 	log.Printf("http://%s%s -> file upload (POST, PUT)", config.Addr, config.Routes.Upload)
+
+	if !config.NoFileUploadForm {
+		engine.GET(path_wildcard, fileupload.FileUploadHelperHandlerCreate(config))
+		log.Printf("http://%s%s -> html upload form (GET)", config.Addr, config.Routes.Upload)
+	}
 }
 
 func setupDumpRequests(engine *gin.Engine, config *types.Config) {

@@ -62,6 +62,7 @@ func BytesToTerminalString(bytes []byte) string {
 		if r == '\n' {
 			return r
 		}
+		// Remove all other control characters
 		if unicode.In(r, unicode.C) {
 			return ' '
 		}
@@ -73,7 +74,7 @@ func BytesToTerminalString(bytes []byte) string {
 
 func methodColor(method string, config *types.Config) string {
 
-	if config.Color {
+	if !config.Color {
 		return reset
 	}
 	switch method {
